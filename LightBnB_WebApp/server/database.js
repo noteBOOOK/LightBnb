@@ -143,14 +143,10 @@ const getAllProperties = function(options, limit = 10) {
     HAVING AVG(property_reviews.rating) >= $${queryParams.length} `;
   }
   
-
   queryParams.push(limit);
   queryString += `
   ORDER BY cost_per_night
   LIMIT $${queryParams.length};`;
-  
-  console.log(queryString, queryParams);
-  
   
   return pool.query(queryString, queryParams)
   .then(res => res.rows);
