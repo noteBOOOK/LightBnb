@@ -133,9 +133,9 @@ const getAllProperties = function(options, limit = 10) {
     queryParams.push(`${options.maximum_price_per_night}`);
     queryString += `AND cost_per_night < $${queryParams.length} `;
   }
-
-    queryString += `
-    GROUP BY properties.id `
+  
+  queryString += `
+  GROUP BY properties.id `;
 
   if (options.minimum_rating) {
     queryParams.push(`${options.minimum_rating}`);
